@@ -1,6 +1,8 @@
 Alumno: Fermin Aldaya
 tercera pre-entrega
 
+se inicia desde /inicio/
+
 Mi proyecto consiste en una pagina web de contrataciones, tanto para empleados que quiieren buscar trabajo como para empleadores en publicar su perfil y sus ofertas.
 
 modelos:
