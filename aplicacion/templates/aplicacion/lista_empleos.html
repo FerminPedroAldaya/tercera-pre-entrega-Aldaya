@@ -1,0 +1,56 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block titulo %}
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Lista de Trabajos</span></h1>
+    </div>                              
+{% endblock titulo %}
+
+{% block filtro %}
+<form action="{% url 'lista_empleos' %}" method="GET" class="text-center">
+    <input type="text" name="cargo" placeholder="Buscar por cargo" class="mx-auto p-2" style="width: 490px;">
+    <button type="submit" class="btn btn-primary btn-lg mx-auto p-2" style="width: 100px;">Buscar</button>
+</form>
+{% endblock filtro %}
+
+{% block informacion %}
+<section class="py-5">
+
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0"> 
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Cargo</th>
+                                <th class="text-center">Ubicacion</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                            </thead>
+                        <tbody>
+                            {% for t in trabajos %}
+                                <tr>
+                                    <td class="text-center">{{ t.cargo }}</td>
+                                    <td class="text-center">{{ t.ubicacion }}</td>
+                                    <td class="text-center">
+                                         <a href="{% url 'detalle_empleo' t.id %}" class="btn btn-primary">
+                                            <i class="bi bi-plus-lg"></i>
+                                           </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+</section>
+        
+{% endblock informacion %}
+
+
+{% block final %}
+
+    <a href="{% url 'trabajoForm' %}"  class = "btn btn-primary btn-lg opacity-95 mx-auto p-2" style="width: 200px;">Generar nuevo empleo</a>
+    
+{% endblock final %}
